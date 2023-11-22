@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProniaAb104.DAL;
 using ProniaAb104.Models;
+using ProniaAb104.ViewModels;
 
 namespace ProniaAb104.Controllers
 {
@@ -63,9 +64,17 @@ namespace ProniaAb104.Controllers
             #endregion
 
             List<Slide> slides = _context.Slides.OrderBy(s=>s.Order).Take(3).ToList();
+            List<Product> products = _context.Products.ToList();
 
             //return View(slides.Take(4).OrderBy(s=>s.Order).ToList()); sqlden datani goturub orderby edirik
-            return View(slides);
+
+            HomeVM home = new HomeVM()
+            {
+                Slides = slides,
+                Products = products
+            };
+            
+            return View(home);
 
         }
         public IActionResult About()

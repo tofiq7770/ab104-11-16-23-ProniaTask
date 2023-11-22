@@ -11,6 +11,7 @@ namespace ProniaAb104.DAL
         }
 
         public DbSet<Slide> Slides { get; set; }
+        public DbSet<Product> Products { get; set; }
 
 
     }
