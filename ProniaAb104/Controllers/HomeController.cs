@@ -49,7 +49,7 @@ namespace ProniaAb104.Controllers
                     Order = 2,
                 }
             };
-            return View(slides);
+            return View(slides.Take(4).OrderBy(s=>s.Order).ToList());
 
         }
         public IActionResult About()
