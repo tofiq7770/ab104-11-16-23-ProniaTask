@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3/j7HHdd0BvtyBG6CeSR1ja5e0ZqXTD2sfH3VzJtuPhEYCE26Srsun9rcXhmWrd3wJSGovq4OpFNX1LUf5RnUw==",
+  "dgSpecHash": "gDZzt5n/WsCN2czxasPs3CWc3hOeuS2UU/EpeU1ikKZxmcb9svH6S1qmMhJ7men7qwskUPVbId1MnBH5/V1TkA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\ProniaAb104.csproj",
+  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\taskp\\ab104-11-16-23-ProniaTask\\ab104-11-16-23-ProniaTask\\ProniaAb104\\ProniaAb104.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tofiq\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\tofiq\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
