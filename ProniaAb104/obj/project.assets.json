@@ -2706,11 +2706,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\taskp\\ab104-11-16-23-ProniaTask\\ab104-11-16-23-ProniaTask\\ProniaAb104\\ProniaAb104.csproj",
+      "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\ProniaAb104.csproj",
       "projectName": "ProniaAb104",
-      "projectPath": "C:\\Users\\tofiq\\Desktop\\taskp\\ab104-11-16-23-ProniaTask\\ab104-11-16-23-ProniaTask\\ProniaAb104\\ProniaAb104.csproj",
+      "projectPath": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\ProniaAb104.csproj",
       "packagesPath": "C:\\Users\\tofiq\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tofiq\\Desktop\\taskp\\ab104-11-16-23-ProniaTask\\ab104-11-16-23-ProniaTask\\ProniaAb104\\obj\\",
+      "outputPath": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
