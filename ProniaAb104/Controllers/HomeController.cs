@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProniaAb104.DAL;
 using ProniaAb104.Models;
 using ProniaAb104.ViewModels;
@@ -64,7 +65,7 @@ namespace ProniaAb104.Controllers
             #endregion
 
             List<Slide> slides = _context.Slides.OrderBy(s=>s.Order).Take(3).ToList();
-            List<Product> products = _context.Products.ToList();
+            List<Product> products = _context.Products.Include(p => p.ProductImages.Where(pi => pi.IsPrimary != null)).OrderBy(s => s.Id).ToList();
 
             //return View(slides.Take(4).OrderBy(s=>s.Order).ToList()); sqlden datani goturub orderby edirik
 
