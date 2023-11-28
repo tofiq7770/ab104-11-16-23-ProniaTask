@@ -31,6 +31,7 @@ namespace ProniaAb104.Controllers
 
 
             if (product is null) return NotFound();
+
             List<Product> products = await _context.Products.Include(p => p.ProductImages.Where(pi => pi.IsPrimary != null)).Where(p => p.CategoryId == product.CategoryId && p.Id != product.Id).ToListAsync();
 
 
