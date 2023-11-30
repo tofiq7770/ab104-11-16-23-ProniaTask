@@ -20,7 +20,8 @@ namespace ProniaAb104.Controllers
 
             List<Slide> slides = await _context.Slides.OrderBy(s => s.Order).Take(3).ToListAsync();
 
-            List<Product> products = await _context.Products.OrderBy(s => s.Id).Include(p => p.ProductImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
+            List<Product> products = await _context.Products.Take(8).OrderBy(s => s.Id).Include(p => p.ProductImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
+     
             //_context.Slides.AddRange(slides);
             //_context.SaveChanges();
 
