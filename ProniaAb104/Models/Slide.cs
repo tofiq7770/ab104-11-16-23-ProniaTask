@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProniaAb104.Models
 {
@@ -10,9 +11,11 @@ namespace ProniaAb104.Models
         public string SubTitle { get; set; }
 
         public string Description { get; set; }
-        [Required]
         public string Image { get; set; }
         public int Order { get; set; }
+
+        [NotMapped]
+        public IFormFile? Photo { get; set; }
 
     }
 }
