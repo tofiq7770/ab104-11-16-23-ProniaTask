@@ -47,9 +47,9 @@
                                                 @category.Products.Count
                                             </td>
                                             <td>
-                                                <a class="btn btn-inverse-success btn-success"><i class="mdi mdi-border-color"></i></a>
-                                                <a class="btn btn-inverse-danger btn-danger"><i class="mdi mdi-delete"></i></a>
-                                                <a class="btn btn-inverse-primary btn-primary"><i class="mdi mdi-open-in-new"></i></a>
+                                                <a asp-action="update" asp-controller="category" asp-route-id="@category.Id" class="btn btn-inverse-success btn-success"><i class="mdi mdi-border-color"></i></a>
+                                                <a asp-action="delete" asp-controller="category" asp-route-id="@category.Id" class="btn btn-inverse-danger btn-danger"><i class="mdi mdi-delete"></i></a>
+                                                <a asp-action="detail" asp-controller="category" asp-route-id="@category.Id" class="btn btn-inverse-primary btn-primary"><i class="mdi mdi-open-in-new"></i></a>
                                             </td>
                                         </tr>
                                     }
