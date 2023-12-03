@@ -10,10 +10,18 @@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <div class="col-6">
-                                    <img src="~/assets/images/slider/@Model.Image" style="width:200px; height:200px;object-fit:cover" />
-                                    <h2>@Model.Title</h2>
-                                    <p>@Model.Description</p>
-                                    <a class="btn btn-secondary" asp-action="Index" asp-controller="Slide">Go Back</a>
+                                    <img src="~/assets/images/slider/@Model.Image" style="width:200px; height:200px;object-fit:cover" /><br />
+                                    <br/>
+                                    <h2>Title: @Model.Title</h2>
+                                    <br/>
+                                    <h2>Subitle: @Model.SubTitle</h2>
+                                    <br/>
+                                    <h3>Description: @Model.Description</h3>
+                                    <br/>
+                                    <a class="btn btn-inverse-primary" asp-action="Index" asp-controller="Slide"><i class="mdi mdi-arrow-left-bold"></i></a>
+                                    <a asp-action="update" asp-controller="slide" asp-route-id="@Model.Id" class="btn btn-inverse-success btn-success"><i class="mdi mdi-border-color"></i></a>
+                                    <a asp-action="delete" asp-controller="slide" asp-route-id="@Model.Id" class="btn btn-inverse-danger btn-danger"><i class="mdi mdi-delete"></i></a>
+
                                 </div>
                             </table>
                         </div>
