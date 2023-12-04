@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ProniaAb104.Areas.ProniaAdmin.ViewModels;
 using ProniaAb104.DAL;
 using ProniaAb104.Models;
 using ProniaAb104.Utilities.Extensions;
@@ -28,21 +29,19 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Slide slide)
+        public async Task<IActionResult> Create(CreateSlideVM slideVm)
         {
-
-
-            if (slide.Photo is null)
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("Photo", "Mutlew Shekil secilmelidir");
                 return View();
             }
-            if (!slide.Photo.ValidateType("image/"))
+
+            if (!slideVm.Photo.ValidateType("image/"))
             {
                 ModelState.AddModelError("Photo", "File tipi uygun deyil");
                 return View();
             }
-            if (!slide.Photo.ValidateSize(3 * 1024))
+            if (!slideVm.Photo.ValidateSize(3 * 1024))
             {
                 ModelState.AddModelError("Photo", "Fotonun hecmi 3mb den boyuk OLMAMALIDIR");
                 return View();
@@ -50,8 +49,17 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
 
 
 
-            slide.Image = await slide.Photo.CreateFile(_env.WebRootPath, "assets", "images", "slider");
+            string fileName = await slideVm.Photo.CreateFile(_env.WebRootPath, "assets", "images", "slider");
 
+
+            Slide slide = new Slide()
+            {
+                Image = fileName,
+                Title = slideVm.Title,
+                SubTitle = slideVm.SubTitle,
+                Description = slideVm.Description,
+                Order = slideVm.Order,
+            };
             await _context.Slides.AddAsync(slide);
             await _context.SaveChangesAsync();
 
@@ -60,55 +68,8 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
             //return Content(slide.Photo.FileName + " " + slide.Photo.ContentType + " " + slide.Photo.Length);
 
         }
-        public async Task<IActionResult> Update(int id)
-        {
-            if (id <= 0) return BadRequest();
-            Slide slide = await _context.Slides.FirstOrDefaultAsync(c => c.Id == id);
-            if (slide == null) return NotFound();
-
-            return View(slide);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Update(int id,Slide slide)
-        {
-            Slide existed = await _context.Slides.FirstOrDefaultAsync(c => c.Id == id);
-
-            if (existed == null) return NotFound();
-
-            if (!ModelState.IsValid)
-            {
-                return View(existed);
-            }
 
 
-            if (slide.Photo is not null)
-            {
-
-                if (!slide.Photo.ValidateType("image/"))
-                {
-                    ModelState.AddModelError("Photo", "File tipi uygun deyil");
-                    return View(existed);
-                }
-                if (!slide.Photo.ValidateSize(3 * 1024))
-                {
-                    ModelState.AddModelError("Photo", "Fotonun hecmi 3mb den boyuk OLMAMALIDIR");
-                    return View(existed);
-                }
-                string newImage =await slide.Photo.CreateFile(_env.WebRootPath, "assets", "images", "slider");
-                existed.Image.DeleteFile(_env.WebRootPath, "assets", "images", "slider");
-                existed.Image = newImage;
-            }
-
-
-            existed.Title = slide.Title;
-            existed.Description = slide.Description;
-            existed.SubTitle = slide.SubTitle;
-            existed.Order = slide.Order;
-
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
-        }
 
         #region deletefirst
         //public async Task<IActionResult> Delete(int id)
@@ -126,16 +87,87 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
 
         //}
         #endregion
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Slide existed = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
+
+            if (existed is null) return NotFound();
+
+            UpdateSlideVM slideVM = new UpdateSlideVM
+            {
+                Image = existed.Image,
+                Title = existed.Title,
+                SubTitle = existed.SubTitle,
+                Description = existed.Description,
+                Order = existed.Order
+            };
+
+            return View(slideVM);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(int id, UpdateSlideVM slideVM)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Slide existed = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
+
+            if (existed is null) return NotFound();
+
+
+            if (slideVM.Photo is not null)
+            {
+                if (!slideVM.Photo.ValidateType("image/"))
+                {
+                    ModelState.AddModelError("Photo", "File tipi uygun deyil");
+                    return View(slideVM);
+                }
+                if (!slideVM.Photo.ValidateSize(3 * 1024))
+                {
+                    ModelState.AddModelError("Photo", "Sheklin hecmi 2 mb-den boyuk olmamalidir");
+                    return View(slideVM);
+                }
+                string newImage = await slideVM.Photo.CreateFile(_env.WebRootPath, "assets", "images", "slider");
+                existed.Image.DeleteFile(_env.WebRootPath, "assets", "images", "slider");
+                existed.Image = newImage;
+
+            }
+
+            existed.Title = slideVM.Title;
+            existed.Description = slideVM.Description;
+            existed.SubTitle = slideVM.SubTitle;
+            existed.Order = slideVM.Order;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+
+
+
+        }
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
-            Slide existed = await _context.Slides.FirstOrDefaultAsync(c => c.Id == id);
-            if (existed == null) return NotFound();
-            existed.Image.DeleteFile(_env.WebRootPath,"assets","images","slider");
-            _context.Slides.Remove(existed);
+
+            Slide slide = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
+
+            if (slide is null) return NotFound();
+
+            slide.Image.DeleteFile(_env.WebRootPath, "assets", "images", "slider");
+
+
+            _context.Slides.Remove(slide);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));    
+
+            return RedirectToAction(nameof(Index));
+
         }
+
         public async Task<IActionResult> Detail(int id)
         {
             if (id <= 0) return BadRequest();
