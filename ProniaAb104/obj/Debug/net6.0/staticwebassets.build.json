@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cFYw0tcIz+ed1fjcoMtYnrTDnRoE0j1GujBi6F9YPMw=",
+  "Hash": "v4Q0PpiimHvEf7A5OmTdAnaPSTU3Ed8bcY+qrDkc4W4=",
   "Source": "ProniaAb104",
   "BasePath": "_content/ProniaAb104",
   "Mode": "Default",
@@ -3264,12 +3264,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\slider\\331b790c-35f7-4430-8136-5affbfd507c0download (1).jfif"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\wwwroot\\assets\\images\\slider\\583212d8-5497-45c4-89f0-054b826d6251slide 2.jfif",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\wwwroot\\assets\\images\\slider\\47bfafb7-60f2-4c5f-a76e-2bb19cb047cd1-1-524x617.png",
       "SourceId": "ProniaAb104",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\wwwroot\\",
       "BasePath": "_content/ProniaAb104",
-      "RelativePath": "assets/images/slider/583212d8-5497-45c4-89f0-054b826d6251slide 2.jfif",
+      "RelativePath": "assets/images/slider/47bfafb7-60f2-4c5f-a76e-2bb19cb047cd1-1-524x617.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3278,7 +3278,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\slider\\583212d8-5497-45c4-89f0-054b826d6251slide 2.jfif"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\slider\\47bfafb7-60f2-4c5f-a76e-2bb19cb047cd1-1-524x617.png"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\wwwroot\\assets\\images\\slider\\632f8826-649e-4755-8784-1a37ab9e6843Screenshot 2022-12-14 002627.png",
@@ -3296,6 +3296,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\slider\\632f8826-649e-4755-8784-1a37ab9e6843Screenshot 2022-12-14 002627.png"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\wwwroot\\assets\\images\\slider\\80864ba4-9705-4b31-b078-86c7a34ad1f2Rose.jfif",
+      "SourceId": "ProniaAb104",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\wwwroot\\",
+      "BasePath": "_content/ProniaAb104",
+      "RelativePath": "assets/images/slider/80864ba4-9705-4b31-b078-86c7a34ad1f2Rose.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\slider\\80864ba4-9705-4b31-b078-86c7a34ad1f2Rose.jfif"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\ProniaAb104\\ProniaAb104\\wwwroot\\assets\\images\\slider\\8cad1ae6-c30d-4c8d-b09d-5e6e883ee492download.jfif",

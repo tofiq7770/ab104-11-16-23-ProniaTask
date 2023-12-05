@@ -52,7 +52,6 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Update(int id, Category category)
         {
             if (!ModelState.IsValid)

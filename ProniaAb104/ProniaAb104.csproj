@@ -82,6 +82,7 @@
   <ItemGroup>
     <Folder Include="Areas\ProniaAdmin\Data\" />
     <Folder Include="Areas\ProniaAdmin\Models\" />
+    <Folder Include="Areas\ProniaAdmin\ViewModels\Product\" />
   </ItemGroup>
 
 </Project>
