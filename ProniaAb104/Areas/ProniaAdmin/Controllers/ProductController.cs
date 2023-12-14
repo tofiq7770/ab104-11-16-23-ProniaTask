@@ -55,10 +55,58 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
                 CategoryId = (int)productVM.CategoryId,
                 Description = productVM.Description,
             };
-            
+
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Product product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null) return NotFound();
+            UpdateProductVM productVM = new UpdateProductVM()
+            {
+                Name = product.Name,
+                Description = product.Description,
+                SKU = product.SKU,
+                Price = product.Price,
+                CategoryId = product.CategoryId,
+                Categories = await _context.Categories.ToListAsync()
+            };
+            return View(productVM);
+        }
+        [HttpPost]
+
+        public async Task<IActionResult> Update(int id, UpdateProductVM productVM)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                productVM.Categories = await _context.Categories.ToListAsync();
+                return View();
+            }
+            Product existed = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            if (existed is null) return NotFound();
+
+            bool result = await _context.Categories.AnyAsync(c => c.Id==productVM.CategoryId);
+            if (!result)
+            {
+                return View();
+            }
+
+
+            existed.Name = productVM.Name;
+            existed.Description = productVM.Description;
+            existed.SKU = productVM.SKU;
+            existed.Price = productVM.Price;
+            existed.CategoryId = productVM.CategoryId;
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
+
     }
 }
