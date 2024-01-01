@@ -1,13 +1,12 @@
-﻿@model Category
+﻿@model UpdateColorVM
 
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
-
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Create Category</h4>
+                        <h4 class="card-title">Create Color </h4>
 
                         <form class="forms-sample" method="post">
                             <div class="form-group">
@@ -16,12 +15,12 @@
                                 <span class="text-danger" asp-validation-for="Name"></span>
                             </div>
 
-                            <button type="submit" class="btn btn-primary me-2">Submit</button>
-                            <a asp-action="index" asp-controller="category" class="btn btn-light">Cancel</a>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-action="Index" asp-controller="Color" class="btn btn-light">Cancel</a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> 

@@ -1,4 +1,4 @@
-﻿@model Category
+﻿@model Tag
 
 <div class="main-panel">
     <div class="content-wrapper">
@@ -12,10 +12,10 @@
                                 <div class="col-6">
                                     
                                     <h2> Name: @Model.Name</h2>
-                                    <p>@Model.Products</p>
-                                    <a class="btn btn-inverse-primary" asp-action="Index" asp-controller="Category"><i class="mdi mdi-arrow-left-bold"></i></a>
-                                    <a asp-action="update" asp-controller="Category" asp-route-id="@Model.Id" class="btn btn-inverse-success btn-success"><i class="mdi mdi-border-color"></i></a>
-                                    <a asp-action="delete" asp-controller="Category" asp-route-id="@Model.Id" class="btn btn-inverse-danger btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    <p>@Model.ProductTags</p>
+                                    <a class="btn btn-inverse-primary" asp-action="Index" asp-controller="Tag"><i class="mdi mdi-arrow-left-bold"></i></a>
+                                    <a asp-action="update" asp-controller="Tag" asp-route-id="@Model.Id" class="btn btn-inverse-success btn-success"><i class="mdi mdi-border-color"></i></a>
+                                    <a asp-action="delete" asp-controller="Tag" asp-route-id="@Model.Id" class="btn btn-inverse-danger btn-danger"><i class="mdi mdi-delete"></i></a>
                             </table>
                         </div>
                     </div>
