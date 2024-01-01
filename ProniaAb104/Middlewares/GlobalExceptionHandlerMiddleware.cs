@@ -14,9 +14,9 @@
             {
                 await _next.Invoke(context);
             }
-            catch (Exception e)
+            catch (Exception msj)
             {
-                context.Response.Redirect($"Home/ErrorPage?error={e.Message}");
+                context.Response.Redirect($"Home/ErrorPage?error={msj.Message}");
             }
                            
         }
