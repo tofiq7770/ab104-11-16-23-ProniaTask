@@ -8,7 +8,6 @@ using ProniaAb104.Utilities.Extensions;
 namespace ProniaAb104.Areas.ProniaAdmin.Controllers
 {
     [Area("ProniaAdmin")]
-
     public class SlideController : Controller
     {
         private readonly AppDbContext _context;
@@ -49,7 +48,7 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
 
 
 
-            string fileName = await slideVm.Photo.CreateFile(_env.WebRootPath, "assets", "images", "slider");
+            string fileName = await slideVm.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "slider");
 
 
             Slide slide = new Slide()
@@ -132,7 +131,7 @@ namespace ProniaAb104.Areas.ProniaAdmin.Controllers
                     ModelState.AddModelError("Photo", "Sheklin hecmi 2 mb-den boyuk olmamalidir");
                     return View(slideVM);
                 }
-                string newImage = await slideVM.Photo.CreateFile(_env.WebRootPath, "assets", "images", "slider");
+                string newImage = await slideVM.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "slider");
                 existed.Image.DeleteFile(_env.WebRootPath, "assets", "images", "slider");
                 existed.Image = newImage;
 
